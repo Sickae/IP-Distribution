@@ -1,0 +1,18 @@
+﻿<Window x:Class="IP_Distribution.IPList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IP_Distribution"
+        mc:Ignorable="d"
+        Title="IP List" Height="500" Width="900">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="25,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="50" Name="Number"/>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="135,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Name="Network"/>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="295,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="95" Name="HostFirst"/>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="390,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="10" Name="HostSep"/>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="405,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Name="HostLast"/>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="615,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="95" Name="Broadcast"/>
+        <TextBlock HorizontalAlignment="Left" Height="370" Margin="775,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="95" Name="Submask"/>
+    </Grid>
+</Window>
