@@ -8,17 +8,16 @@ namespace IP_Distribution
     /// </summary>
     public partial class IPList : Window
     {
-        public IPList(string number, string network, string hostFirst, string hostSep,
-            string hostLast, string broadcast, string submask)
+        public IPList(string wintitle, string number, string network, string host, string broadcast, string submask)
         {
+            InitializeComponent();
+
+            ListWindow.Title = wintitle;
             Number.Text = number;
             Network.Text = network;
-            HostFirst.Text = hostFirst;
-            HostSep.Text = hostSep;
-            HostLast.Text = hostLast;
+            Host.Text = host;
             Broadcast.Text = broadcast;
             Submask.Text = submask;
-            InitializeComponent();
         }
     }
 }

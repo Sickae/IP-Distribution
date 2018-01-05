@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IP_Distribution"
         mc:Ignorable="d"
-        Title="IP List" Height="500" Width="900">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="25,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="50" Name="Number"/>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="135,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Name="Network"/>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="295,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="95" Name="HostFirst"/>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="390,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="10" Name="HostSep"/>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="405,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Name="HostLast"/>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="615,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="95" Name="Broadcast"/>
-        <TextBlock HorizontalAlignment="Left" Height="370" Margin="775,65,0,34" TextWrapping="Wrap" VerticalAlignment="Center" Width="95" Name="Submask"/>
-    </Grid>
+        Title="IP List" Height="500" Width="900" Name="ListWindow" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <Grid>
+            <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="35,65,0,388" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Number"/>
+            <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="135,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Network"/>
+            <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="270,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Host"/>
+            <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="625,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Broadcast"/>
+            <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="746,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Submask"/>
+            <Label Content="#" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Number}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="NumberLabel"/>
+            <Label Content="Network" HorizontalAlignment="Left" Margin="135,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Network}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="NetworkLabel"/>
+            <Label Content="Hosts" HorizontalAlignment="Left" Margin="270,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Host}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="HostLabel"/>
+            <Label Content="Broadcast" HorizontalAlignment="Left" Margin="625,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Broadcast}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="BroadcastLabel"/>
+            <Label Content="Mask" HorizontalAlignment="Left" Margin="746,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Submask}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="MaskLabel"/>
+        </Grid>
+    </ScrollViewer>
 </Window>

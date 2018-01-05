@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IP_Distribution"
         mc:Ignorable="d"
-        Title="IP Distribution" Height="200" Width="400" ResizeMode="CanMinimize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+        Title="IP Distribution" Height="200" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid RenderTransformOrigin="0.496,0.514">
         <TextBox HorizontalAlignment="Left" Height="19" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" Margin="98,55,0,0" TextChanged="IP_1_TextChanged" Name="IP1"/>
         <TextBox HorizontalAlignment="Left" Height="19" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" Margin="141,55,0,0" TextChanged="IP_2_TextChanged" Name="IP2"/>
