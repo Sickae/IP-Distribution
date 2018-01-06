@@ -13,11 +13,11 @@
             <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="270,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Host"/>
             <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="625,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Broadcast"/>
             <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="746,65,0,34" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Name="Submask"/>
-            <Label Content="#" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Number}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="NumberLabel"/>
-            <Label Content="Network" HorizontalAlignment="Left" Margin="135,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Network}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="NetworkLabel"/>
-            <Label Content="Hosts" HorizontalAlignment="Left" Margin="270,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Host}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="HostLabel"/>
-            <Label Content="Broadcast" HorizontalAlignment="Left" Margin="625,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Broadcast}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="BroadcastLabel"/>
-            <Label Content="Mask" HorizontalAlignment="Left" Margin="746,20,0,0" VerticalAlignment="Top" Width="{Binding Path=ActualWidth, ElementName=Submask}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="MaskLabel"/>
+            <Label Content="#" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" MinWidth="20" Width="{Binding Path=ActualWidth, ElementName=Number}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="NumberLabel"/>
+            <Label Content="Network" HorizontalAlignment="Left" Margin="135,20,0,0" VerticalAlignment="Top" MinWidth="60" Width="{Binding Path=ActualWidth, ElementName=Network}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="NetworkLabel"/>
+            <Label Content="Hosts" HorizontalAlignment="Left" Margin="270,20,0,0" VerticalAlignment="Top" MinWidth="200" Width="{Binding Path=ActualWidth, ElementName=Host}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="HostLabel"/>
+            <Label Content="Broadcast" HorizontalAlignment="Left" Margin="625,20,0,0" VerticalAlignment="Top" MinWidth="70" Width="{Binding Path=ActualWidth, ElementName=Broadcast}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="BroadcastLabel"/>
+            <Label Content="Mask" HorizontalAlignment="Left" Margin="746,20,0,0" VerticalAlignment="Top" MinWidth="40" Width="{Binding Path=ActualWidth, ElementName=Submask}" FontWeight="Bold" HorizontalContentAlignment="Center" Name="MaskLabel"/>
         </Grid>
     </ScrollViewer>
 </Window>

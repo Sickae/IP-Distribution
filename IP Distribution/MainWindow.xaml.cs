@@ -20,14 +20,17 @@ namespace IP_Distribution
             RefreshIP();
             if(hosts.Count > 1) // vls
             {
-                // Finding the province, power of 2 for that province
-                uint[] prov = new uint[hosts.Count];
-                byte[] pow = new byte[prov.Length];
+                long usable = (long)Math.Pow(2, 32); // Calculating the maximum amount of usable IPs
+                for (int i = 0; i < 4; i++) usable = usable - (uint)(ip[3 - i] * Math.Pow(256, i)); // Calculating the actually usable amount of IPs
+                uint[] prov = new uint[hosts.Count]; // Province in which the hosts fit in
+                byte[] pow = new byte[prov.Length]; // Power of 2 for that province
+                uint sum = 0;
                 for (int i = 0; i < prov.Length; i++)
                 {
                     prov[i] = FindProv(hosts[i]);
                     pow[i] = (byte)Math.Log(prov[i], 2);
-                    if (32 - pow[i] < mask) // If there's a network that doesn't fit in the original network, stop the execution
+                    sum += prov[i];
+                    if (32 - pow[i] < mask || sum > usable) // If there's a network that doesn't fit in the original network, stop the execution
                     {
                         MessageBox.Show("Hosts can't fit in the network", "Error");
                         return;
@@ -67,9 +70,11 @@ namespace IP_Distribution
                 // Finding province and power of 2 for that province
                 uint prov = FindProv(hosts[0]);
                 byte pow = (byte)Math.Log(prov, 2);
-                byte smask = (byte)(32 - pow); 
-                //for (int i = 0; i < 4; i++) n -= (int)(ip[3 - i] * Math.Pow(256, i));
-                if (smask >= mask) // Checking if the sub-network fits in the original network
+                byte smask = (byte)(32 - pow);
+                long usable = (long)Math.Pow(2, 32); // Calculating the maximum amount of usable IPs
+                for (int i = 0; i < 4; i++) usable = usable-(uint)(ip[3 - i] * Math.Pow(256, i)); // Calculating the actually usable amount of IPs
+                long n = usable / prov; // Calculating how many times the iteration should run
+                if (smask >= mask && n >= 1) // Checking if the sub-network fits in the original network
                 {
                     string wintitle = String.Join(".", ip) + "/" + mask + " - " + String.Join(", ", hosts);
                     StringBuilder number = new StringBuilder();
@@ -82,7 +87,6 @@ namespace IP_Distribution
                     try
                     {
                         // Iterating through the network and calculating IPs
-                        int n = (int)(Math.Pow(2, 32 - mask) / Math.Pow(2, 32 - smask)); // Calculating how many times the iteration should run
                         for (int i = 0; i < n; i++)
                         {
                             number.Append("#").Append((i + 1)).AppendLine();
@@ -95,7 +99,7 @@ namespace IP_Distribution
                             IncrIP(1);
                             broadcast.Append(String.Join(".", ip)).AppendLine();
                             submask.Append(CalcMask((byte)(32 - pow))).AppendLine();
-                            IncrIP(1);
+                            if(i != n - 1) IncrIP(1);
                         }
                         // Creating the IP List window
                         IPList list = new IPList(wintitle, number.ToString(), network.ToString(), host.ToString(), broadcast.ToString(), submask.ToString());
@@ -104,12 +108,8 @@ namespace IP_Distribution
                     catch (OutOfIPAddresses) // Exception thrown when there is no more IP left to work with (255.255.255.255)
                     {
                         // Creating the IP List window
-                        if (number.Length > 0)
-                        {
-                            IPList list = new IPList(wintitle, number.ToString(), network.ToString(), host.ToString(), broadcast.ToString(), submask.ToString());
-                            list.ShowDialog();
-                        }
-                        else MessageBox.Show("Hosts can't fit in the network", "Error");
+                        IPList list = new IPList(wintitle, number.ToString(), network.ToString(), host.ToString(), broadcast.ToString(), submask.ToString());
+                        list.ShowDialog();
                     }
                 }
                 else MessageBox.Show("Hosts can't fit in the network", "Error");
@@ -194,7 +194,7 @@ namespace IP_Distribution
 
         public void IncrIP(uint n) // Method for incrementing the IP with 'n' number
         {
-            int i = 4;
+            int i = 3;
             while (n > 0)
             {
                 int c = (int)(Math.Log(n, 256));
